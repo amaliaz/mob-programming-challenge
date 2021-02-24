@@ -4,12 +4,13 @@ require("./config/mongodb.js");
 const express = require("express");
 const app = express();
 const hbs = require("hbs");
-const { set } = require("mongoose");
+
+
 
 app.use(express.static(__dirname + "/public"));
 app.set("views", __dirname + "/views");
-app.set("view engine", "hbs")
-
+app.set("view engine", "hbs");
+hbs.registerPartials(__dirname + "/views/partials");
 
 const users = [
   { name: "toto", email: "toto@iron.com", favoriteLanguage: "Javascript" },
