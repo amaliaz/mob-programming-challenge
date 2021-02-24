@@ -28,7 +28,7 @@ app.get("/add-new-ironhacker", (req, res) => {
 });
 
 app.get("/my-dev-squad", (req, res) => {
-  res.render("allUsers", users);
+  res.render("allUsers", {users});
 });
 
 app.get("/api/ironhackers", (req, res) => {
