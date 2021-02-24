@@ -5,12 +5,11 @@ const express = require("express");
 const app = express();
 const hbs = require("hbs");
 
-
-
 app.use(express.static(__dirname + "/public"));
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
-hbs.registerPartials(__dirname + "/views/partials");
+hbs.registerPartials(__dirname + "/views/partials")
+
 
 const users = [
   { name: "toto", email: "toto@iron.com", favoriteLanguage: "Javascript" },
@@ -21,21 +20,22 @@ const users = [
 const images = ["/img/one.jpeg", "/img/two.jpeg", "/img/three.jpeg"];
 
 app.get("/", (req, res) => {
-  res.render("home", images);
-})
+  res.render("home", { images });
+});
 
 app.get("/add-new-ironhacker", (req, res) => {
   res.render("formU");
-})
+});
 
 app.get("/my-dev-squad", (req, res) => {
   res.render("allUsers", users);
-})
+});
 
 app.get("/api/ironhackers", (req, res) => {
   res.json(users);
-})
+});
 
-
-
-app.listen(process.env.PORT,()=>{console.log(`welcome @http://localhost:${process.env.PORT}`)})
+app.listen(process.env.PORT, () => {
+  console.log(`welcome @http://localhost:${process.env.PORT}`);
+});
+                     
