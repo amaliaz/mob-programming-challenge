@@ -1,1 +1,9 @@
 <h1>My Devsquad</h1>
+
+{{#each users}}
+
+<ul class="user-list">
+    <li>{{this.name}} -- {{this.email}} -- {{this.favoriteLanguage}}</li>
+</ul>
+
+{{/each}}
